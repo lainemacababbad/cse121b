@@ -24,6 +24,7 @@ function addTask() {
     var input = document.getElementById("new-task");
     var taskText = input.value.trim();
 
+    // If user does not add a task, a pop up will appear
     if (taskText === "") {
         alert("Please enter a task.");
         return;
@@ -45,14 +46,14 @@ function addTask() {
     input.value = "";
 }
 
-// Function to use the Enter key on the keyboard when entering a task
+// When adding a task, user can click the enter on the keyboard
 function handleKeyPress(event) {
     if (event.key === 'Enter') {
         addTask();
     }
 }
 
-// Confirmation to delete a task
+// A pop-up will appear to confirm if user wants to delete a task
 function deleteTask(button) {
     var li = button.closest("li"); // Find the closest ancestor <li> element
     var isConfirmed = confirm("Are you sure you want to delete this task?");
@@ -62,7 +63,7 @@ function deleteTask(button) {
     }
 }
 
-// Toggle strikethrough
+// When user is done with a task, they can click the radio button and it will put a line-through
 function toggleStrikeThrough(radioButton) {
     var li = radioButton.closest("li");
     var taskText = li.querySelector("span");

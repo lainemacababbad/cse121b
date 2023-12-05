@@ -1,0 +1,9 @@
+#tasks-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 5; /* Added to remove default margin and spacing */
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
