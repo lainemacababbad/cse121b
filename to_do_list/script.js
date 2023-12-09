@@ -24,7 +24,7 @@ function addTask() {
     var input = document.getElementById("new-task");
     var taskText = input.value.trim();
 
-    // If user does not add a task, a pop up will appear
+    // If user does not add a task, a pop up will appear asking them to enter a task
     if (taskText === "") {
         alert("Please enter a task.");
         return;
@@ -34,7 +34,7 @@ function addTask() {
     var ul = document.getElementById("tasks-list");
     var li = document.createElement("li");
 
-    // Add a radio button and task title
+    // Add a radio button and label "Delete". It also makes sure that a task is being added
     li.innerHTML = `
         <input type="radio" name="taskRadio" onclick="toggleStrikeThrough(this)">
         <span>${taskText}</span>
@@ -55,7 +55,7 @@ function handleKeyPress(event) {
 
 // A pop-up will appear to confirm if user wants to delete a task
 function deleteTask(button) {
-    var li = button.closest("li"); // Find the closest ancestor <li> element
+    var li = button.closest("li");
     var isConfirmed = confirm("Are you sure you want to delete this task?");
 
     if (isConfirmed) {
@@ -63,7 +63,8 @@ function deleteTask(button) {
     }
 }
 
-// When user is done with a task, they can click the radio button and it will put a line-through
+// When user is done with a task, they can click the radio button and it will scratch that
+// This can mean that user is either done with task or does not want to do task anymore
 function toggleStrikeThrough(radioButton) {
     var li = radioButton.closest("li");
     var taskText = li.querySelector("span");
